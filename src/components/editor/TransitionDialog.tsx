@@ -40,7 +40,6 @@ export function TransitionDialog() {
     setNewSymbol('');
     setError(null);
     // Reinicia o formulário apenas quando um novo rascunho é aberto.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [draft]);
 
   if (!draft || !definition) return null;
