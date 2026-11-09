@@ -129,7 +129,7 @@ export function AutomatonCanvas({ project, issues }: AutomatonCanvasProps) {
         connectionRadius={36}
         minZoom={0.2}
         maxZoom={2.5}
-        fitView
+        fitView={!isEmpty}
         fitViewOptions={{ padding: 0.35, maxZoom: 1.3 }}
       >
         <Background variant={BackgroundVariant.Dots} gap={22} size={1.6} />
