@@ -1,0 +1,8 @@
+{
+  "name": "Inválido — especificação incompleta",
+  "type": "AFD",
+  "states": ["q0", "q1"],
+  "transitions": [
+    { "from": "q0", "to": "q1" }
+  ]
+}

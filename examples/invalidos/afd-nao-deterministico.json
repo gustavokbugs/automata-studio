@@ -1,0 +1,15 @@
+{
+  "format": "automata-studio",
+  "version": 1,
+  "name": "Inválido — AFD com dois destinos",
+  "type": "AFD",
+  "states": ["q0", "q1"],
+  "alphabet": ["a", "b"],
+  "initialState": "q0",
+  "finalStates": ["q1"],
+  "transitions": [
+    { "from": "q0", "symbol": "a", "to": "q0" },
+    { "from": "q0", "symbol": "a", "to": "q1" },
+    { "from": "q1", "symbol": "c", "to": "q2" }
+  ]
+}
