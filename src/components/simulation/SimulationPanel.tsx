@@ -71,7 +71,12 @@ export function SimulationPanel({ definition, issues }: SimulationPanelProps) {
             <Tape result={result} input={input} stepIndex={stepIndex} invalidPositions={invalidPositions} />
             <div className="mt-3">
               {step && result ? (
-                <StepDetails step={step} total={total} type={result.type} />
+                <StepDetails
+                  step={step}
+                  total={total}
+                  type={result.type}
+                  invalidSymbol={finished && result.reason === 'invalid-symbol'}
+                />
               ) : (
                 <p className="text-sm text-fg-muted">
                   Digite uma sentença e use <span className="font-medium text-fg">Executar</span>, a{' '}

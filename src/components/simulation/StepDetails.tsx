@@ -25,10 +25,12 @@ interface StepDetailsProps {
   step: ExecutionStep;
   total: number;
   type: AutomatonType;
+  /** Indica que a etapa parou por um símbolo fora de Σ. */
+  invalidSymbol?: boolean;
 }
 
 /** Detalhes da etapa corrente: símbolo, estados, transições e resultado parcial. */
-export function StepDetails({ step, total, type }: StepDetailsProps) {
+export function StepDetails({ step, total, type, invalidSymbol = false }: StepDetailsProps) {
   const status = statusLabel[step.status];
   const stateLabel = type === 'AFD' ? 'Estado atual' : 'Estados ativos';
   const format = (states: readonly string[]) =>
@@ -74,7 +76,7 @@ export function StepDetails({ step, total, type }: StepDetailsProps) {
             <span className="text-danger">
               {formatStateSet(step.discardedStates)}
               <span className="ml-2 font-sans text-xs text-fg-subtle">
-                sem transição para '{step.symbol}'
+                {invalidSymbol ? `'${step.symbol}' não pertence a Σ` : `sem transição para '${step.symbol}'`}
               </span>
             </span>
           </Field>
