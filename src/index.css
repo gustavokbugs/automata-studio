@@ -1,0 +1,179 @@
+@import 'tailwindcss';
+@import '@xyflow/react/dist/style.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Tokens de design. Os valores concretos vivem em variáveis CSS para que o
+ * tema escuro (padrão) e o tema claro compartilhem as mesmas classes utilitárias.
+ */
+@theme inline {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+  --color-canvas: var(--as-canvas);
+  --color-bg: var(--as-bg);
+  --color-surface: var(--as-surface);
+  --color-surface-2: var(--as-surface-2);
+  --color-surface-3: var(--as-surface-3);
+  --color-line: var(--as-line);
+  --color-line-strong: var(--as-line-strong);
+  --color-fg: var(--as-fg);
+  --color-fg-muted: var(--as-fg-muted);
+  --color-fg-subtle: var(--as-fg-subtle);
+  --color-accent: var(--as-accent);
+  --color-accent-strong: var(--as-accent-strong);
+  --color-accent-soft: var(--as-accent-soft);
+  --color-on-accent: var(--as-on-accent);
+  --color-success: var(--as-success);
+  --color-success-soft: var(--as-success-soft);
+  --color-danger: var(--as-danger);
+  --color-danger-soft: var(--as-danger-soft);
+  --color-warning: var(--as-warning);
+  --color-warning-soft: var(--as-warning-soft);
+}
+
+:root,
+:root.dark {
+  color-scheme: dark;
+  --as-bg: #0f1013;
+  --as-canvas: #121317;
+  --as-surface: #16181d;
+  --as-surface-2: #1c1f25;
+  --as-surface-3: #252830;
+  --as-line: #262930;
+  --as-line-strong: #353943;
+  --as-fg: #e7e9ee;
+  --as-fg-muted: #a1a6b3;
+  --as-fg-subtle: #6c7280;
+  --as-accent: #8b7cff;
+  --as-accent-strong: #a597ff;
+  --as-accent-soft: rgb(139 124 255 / 0.14);
+  --as-on-accent: #0f1013;
+  --as-success: #34d399;
+  --as-success-soft: rgb(52 211 153 / 0.13);
+  --as-danger: #fb7185;
+  --as-danger-soft: rgb(251 113 133 / 0.13);
+  --as-warning: #fbbf24;
+  --as-warning-soft: rgb(251 191 36 / 0.13);
+  --as-grid: #23262d;
+}
+
+:root.light {
+  color-scheme: light;
+  --as-bg: #f4f5f7;
+  --as-canvas: #fbfbfc;
+  --as-surface: #ffffff;
+  --as-surface-2: #f3f4f6;
+  --as-surface-3: #e8eaee;
+  --as-line: #e3e5ea;
+  --as-line-strong: #cfd3da;
+  --as-fg: #15171c;
+  --as-fg-muted: #555b67;
+  --as-fg-subtle: #8a909c;
+  --as-accent: #6a58f0;
+  --as-accent-strong: #5543e0;
+  --as-accent-soft: rgb(106 88 240 / 0.1);
+  --as-on-accent: #ffffff;
+  --as-success: #059669;
+  --as-success-soft: rgb(5 150 105 / 0.1);
+  --as-danger: #e11d48;
+  --as-danger-soft: rgb(225 29 72 / 0.08);
+  --as-warning: #b45309;
+  --as-warning-soft: rgb(180 83 9 / 0.1);
+  --as-grid: #e6e8ec;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--as-bg);
+  color: var(--as-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Barras de rolagem discretas */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--as-line-strong) transparent;
+}
+
+/* Ajustes do React Flow para o tema */
+.react-flow {
+  --xy-background-color: var(--as-canvas);
+  --xy-background-pattern-color: var(--as-grid);
+  --xy-controls-button-background-color: var(--as-surface-2);
+  --xy-controls-button-background-color-hover: var(--as-surface-3);
+  --xy-controls-button-color: var(--as-fg-muted);
+  --xy-controls-button-color-hover: var(--as-fg);
+  --xy-controls-button-border-color: var(--as-line);
+  --xy-minimap-background-color: var(--as-surface);
+  --xy-attribution-background-color: transparent;
+  --xy-connectionline-stroke-default: var(--as-accent);
+  --xy-connectionline-stroke-width-default: 2;
+}
+
+.react-flow__controls {
+  border: 1px solid var(--as-line);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.react-flow__node {
+  cursor: grab;
+}
+
+.react-flow__node.dragging {
+  cursor: grabbing;
+}
+
+/* Animações utilitárias */
+@keyframes as-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes as-pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 var(--as-accent-soft);
+  }
+  100% {
+    box-shadow: 0 0 0 12px transparent;
+  }
+}
+
+@keyframes as-dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.animate-fade-in {
+  animation: as-fade-in 180ms ease-out both;
+}
+
+.animate-pulse-ring {
+  animation: as-pulse-ring 1.2s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
