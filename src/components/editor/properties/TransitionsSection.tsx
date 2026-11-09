@@ -14,7 +14,7 @@ function options(values: readonly string[], current?: string) {
   return [...new Set(all)];
 }
 
-const cellSelect = 'h-7 rounded-md px-1.5 pr-5 font-mono text-xs';
+const cellSelect = 'h-7 w-auto min-w-[3.25rem] flex-1 rounded-md px-1.5 font-mono text-xs';
 
 /** Função de transição δ em forma de tabela editável. */
 export function TransitionsSection({
@@ -51,7 +51,11 @@ export function TransitionsSection({
 
   return (
     <Section
-      title={`Transições (δ) · ${definition.transitions.length}`}
+      title={
+        <>
+          Transições <span className="normal-case">(δ)</span> · {definition.transitions.length}
+        </>
+      }
       hint="Também é possível criá-las arrastando entre estados no grafo"
     >
       {definition.transitions.length > 0 && (
