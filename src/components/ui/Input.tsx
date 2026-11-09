@@ -17,5 +17,5 @@ export const Select = forwardRef<HTMLSelectElement, SelectHTMLAttributes<HTMLSel
   { className, ...props },
   ref,
 ) {
-  return <select ref={ref} className={cn(field, 'cursor-pointer pr-7', className)} {...props} />;
+  return <select ref={ref} className={cn(field, 'cursor-pointer', className)} {...props} />;
 });
