@@ -48,7 +48,7 @@ export function StepHistory({ result, stepIndex }: { result: ExecutionResult; st
               />
               <span className="w-6 shrink-0 text-fg-subtle">{step.index}</span>
               <span className="w-5 shrink-0 text-center text-accent">{step.symbol ?? '·'}</span>
-              <span className="min-w-0 flex-1 truncate">{states}</span>
+              <span className={cn('min-w-0 flex-1 truncate', step.activeStates.length === 0 && 'text-danger')}>{states}</span>
             </button>
           </li>
         );
