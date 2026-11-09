@@ -42,7 +42,8 @@ describe('estados', () => {
   });
 
   it('o primeiro estado criado torna-se inicial', () => {
-    const result = addState({ definition: emptyDefinition('AFND'), layout: {} });
+    const empty: EditableAutomaton = { definition: emptyDefinition('AFND'), layout: {} };
+    const result = addState(empty);
     expect(result.definition.states).toEqual(['q0']);
     expect(result.definition.initialState).toBe('q0');
     expect(result.layout.q0).toEqual({ x: 0, y: 0 });
