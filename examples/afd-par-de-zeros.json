@@ -1,0 +1,21 @@
+{
+  "format": "automata-studio",
+  "version": 1,
+  "name": "AFD — quantidade par de zeros",
+  "description": "Reconhece as sentenças sobre {0, 1} que possuem uma quantidade par de símbolos 0. q0 memoriza \"par\" e q1 memoriza \"ímpar\".",
+  "type": "AFD",
+  "states": ["q0", "q1"],
+  "alphabet": ["0", "1"],
+  "initialState": "q0",
+  "finalStates": ["q0"],
+  "transitions": [
+    { "from": "q0", "symbol": "0", "to": "q1" },
+    { "from": "q0", "symbol": "1", "to": "q0" },
+    { "from": "q1", "symbol": "0", "to": "q0" },
+    { "from": "q1", "symbol": "1", "to": "q1" }
+  ],
+  "layout": {
+    "q0": { "x": 0, "y": 0 },
+    "q1": { "x": 260, "y": 0 }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "format": "automata-studio",
+  "version": 1,
+  "name": "AFD — palavras que terminam em 01",
+  "description": "Reconhece as sentenças sobre {0, 1} cujo sufixo é 01. q0: nenhum prefixo útil; q1: último símbolo lido foi 0; q2: os dois últimos símbolos foram 01.",
+  "type": "AFD",
+  "states": ["q0", "q1", "q2"],
+  "alphabet": ["0", "1"],
+  "initialState": "q0",
+  "finalStates": ["q2"],
+  "transitions": [
+    { "from": "q0", "symbol": "0", "to": "q1" },
+    { "from": "q0", "symbol": "1", "to": "q0" },
+    { "from": "q1", "symbol": "0", "to": "q1" },
+    { "from": "q1", "symbol": "1", "to": "q2" },
+    { "from": "q2", "symbol": "0", "to": "q1" },
+    { "from": "q2", "symbol": "1", "to": "q0" }
+  ],
+  "layout": {
+    "q0": { "x": 0, "y": 0 },
+    "q1": { "x": 240, "y": 0 },
+    "q2": { "x": 480, "y": 0 }
+  }
+}

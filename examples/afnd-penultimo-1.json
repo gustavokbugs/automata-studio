@@ -1,0 +1,23 @@
+{
+  "format": "automata-studio",
+  "version": 1,
+  "name": "AFND — penúltimo símbolo é 1",
+  "description": "Reconhece as sentenças sobre {0, 1} cujo penúltimo símbolo é 1. Ilustra como o AFND mantém vários estados ativos e descarta caminhos que não chegam ao fim.",
+  "type": "AFND",
+  "states": ["q0", "q1", "q2"],
+  "alphabet": ["0", "1"],
+  "initialState": "q0",
+  "finalStates": ["q2"],
+  "transitions": [
+    { "from": "q0", "symbol": "0", "to": "q0" },
+    { "from": "q0", "symbol": "1", "to": "q0" },
+    { "from": "q0", "symbol": "1", "to": "q1" },
+    { "from": "q1", "symbol": "0", "to": "q2" },
+    { "from": "q1", "symbol": "1", "to": "q2" }
+  ],
+  "layout": {
+    "q0": { "x": 0, "y": 0 },
+    "q1": { "x": 240, "y": 0 },
+    "q2": { "x": 480, "y": 0 }
+  }
+}
